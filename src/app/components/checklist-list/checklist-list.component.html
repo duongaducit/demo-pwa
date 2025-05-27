@@ -1,0 +1,14 @@
+<div class="checklist-container">
+  <h2>チェックリスト一覧</h2>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+  <div class="card-list" *ngIf="!loading && !error">
+    <a class="checklist-card" *ngFor="let item of checklists" [routerLink]="['/checklists', item.id]">
+      <div class="card-title">{{ item.name || (item | json) }}</div>
+      <div class="card-content">
+        <div>値下げ対象: <span>{{ item.amount_reduction }} 件</span></div>
+        <div>撤去対象: <span>{{ item.amount_removal }} 件</span></div>
+      </div>
+    </a>
+  </div>
+</div>

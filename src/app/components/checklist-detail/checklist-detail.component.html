@@ -1,0 +1,23 @@
+<div class="checklist-detail-container">
+  <h2>チェックリスト詳細</h2>
+  <div *ngIf="loading">Loading...</div>
+  <div *ngIf="error">{{ error }}</div>
+  <div class="checklist-detail-card" *ngIf="!loading && !error && checklist">
+    <div *ngFor="let product of checklist" class="product-detail-row">
+      <div class="product-detail-left">
+        <div>区分：<span>{{ product.category }}</span></div>
+        <div>JANコード：<span>{{ product.jancode }}</span></div>
+        <div>商品名：<span>{{ product.name }}</span></div>
+        <div>売場：<span>{{ product.location }}</span></div>
+      </div>
+      <div class="product-detail-right">
+        <ng-container [ngSwitch]="product.status">
+          <span *ngSwitchCase="1" class="status-icon not-sync" title="未同期">🔄</span>
+          <span *ngSwitchCase="2" class="status-icon sync" title="同期済み">✅</span>
+        </ng-container>
+        <button class="register-btn">登録</button>
+      </div>
+      <hr *ngIf="!isLastProduct(product, checklist)" />
+    </div>
+  </div>
+</div>

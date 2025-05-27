@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="header">
+    <div class="header-title">{{ 'header.title' | translate }}</div>
+  </div>
+  <div class="content">
+    <div class="search-container">
+      <div class="search-row">
+        <label>{{ 'setting.satoadmin' | translate }}</label>
+      </div>
+      <div class="search-row">
+        <div class="search-label">{{ 'setting.tool' | translate }}</div>
+        <div class="search-input">
+          <select [(ngModel)]="selectedTool" (change)="setDataSetting()">
+            <option value="0">OCR Server</option>
+            <option value="1">OCR in device</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="search-container">
+      <div class="search-row">
+        <label>{{ 'setting.store' | translate }}</label>
+      </div>
+      <div class="search-row">
+        <div class="search-label">{{ 'setting.language' | translate }}</div>
+        <div class="search-input">
+          <select [(ngModel)]="selectedCountry" (change)="onCountryChange($event)">
+            <option *ngFor="let country of countries" [value]="country.key">
+              {{ country.value | translate }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="search-row">
+        <div class="search-label">{{ 'setting.camera' | translate }}</div>
+        <div class="search-input">
+          <select [(ngModel)]="selectedCamera" (change)="setDataSetting()">
+            <option value="0">Camera Scanner</option>
+            <option value="1">Camera device</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-row search-setting">
+        <div class="search-label">{{ 'setting.format' | translate }}</div>
+        <div class="search-input">
+          <div class="search-input-checkbox">
+              <div class="search-input-checkbox-item">
+                <input type="checkbox" [(ngModel)]="selectedFormat.yyyyMMdd" (click)="setDataSetting()" id="checkbox1" name="checkbox1">
+                <label for="checkbox1">yyyy/MM/dd</label>
+              </div>
+              <div class="search-input-checkbox-item">
+                <input type="checkbox" [(ngModel)]="selectedFormat.yyMMdd" (click)="setDataSetting()" id="checkbox2" name="checkbox2">
+                <label for="checkbox2">yy/MM/dd</label>
+              </div>
+              <div class="search-input-checkbox-item">
+                <input type="checkbox" [(ngModel)]="selectedFormat.mmddYYYY" (click)="setDataSetting()" id="checkbox3" name="checkbox3">
+                <label for="checkbox3">mm/dd/YYYY</label>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-loading-overlay></app-loading-overlay>

@@ -1,0 +1,17 @@
+<div class="ocr-mobile-container">
+  <div class="ocr-input-group">
+    <label for="janCode">JANcode</label>
+    <input #janCode id="jancode" type="text" placeholder="Enter JANcode" (focus)="onJanFocus()" (blur)="onJanOutFocus()" />
+  </div>
+  <div class="ocr-input-group">
+    <label for="dateline">Dateline</label>
+    <input id="dateline" type="text" [(ngModel)]="dateline" placeholder="Enter dateline"/>
+  </div>
+  <div class="camera-wrapper" *ngIf="showCamera">
+    <video #video autoplay playsinline width="100%" height="auto"></video>
+    <div class="camera-controls">
+      <button (click)="captureImage()">📸 Chụp ảnh</button>
+      <button (click)="stopCamera()">❌ Tắt camera</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+.ocr-mobile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.ocr-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+label {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+input[type="text"] {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus {
+  border-color: #007bff;
+}
