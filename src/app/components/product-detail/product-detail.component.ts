@@ -4,6 +4,7 @@ import { MAT_DATE_FORMATS, MAT_DATE_LOCALE, DateAdapter } from '@angular/materia
 import { MomentDateAdapter } from '@angular/material-moment-adapter';
 import * as moment from 'moment';
 import { HttpClient } from '@angular/common/http';
+import { API_BASE_URL } from '../../services/api-constants';
 
 export const MY_DATE_FORMATS = {
   parse: { dateInput: 'YYYY-MM-DD' },
@@ -117,7 +118,7 @@ export class ProductDetailComponent implements OnInit {
             jancode: this.jancode,
             dateline: formattedDate
           };
-          this.http.post('http://localhost:3000/update-product', body).subscribe({
+          this.http.post(`${API_BASE_URL}/update-product`, body).subscribe({
             next: () => {
               this.success = 'Product updated successfully!';
             },

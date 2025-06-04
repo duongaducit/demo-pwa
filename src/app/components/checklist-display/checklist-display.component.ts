@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { API_BASE_URL } from '../../services/api-constants';
 
 @Component({
   selector: 'app-checklist-display',
@@ -62,7 +63,7 @@ export class ChecklistDisplayComponent implements OnInit {
       return;
     }
     const options = this.getAuthHeaders();
-    this.http.get<any[]>('http://localhost:3000/checklists', options).subscribe({
+    this.http.get<any[]>(`${API_BASE_URL}/checklists`, options).subscribe({
       next: (data) => {
         this.saveChecklistsToIndexedDB(data);
         this.loadChecklistsFromIndexedDB();
@@ -78,7 +79,7 @@ export class ChecklistDisplayComponent implements OnInit {
 
   fetchAndStoreProducts() {
     const options = this.getAuthHeaders();
-    this.http.get<any[]>('http://localhost:3000/products', options).subscribe({
+    this.http.get<any[]>(`${API_BASE_URL}/products`, options).subscribe({
       next: (products) => {
         this.saveProductsToIndexedDB(products);
       },

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { API_BASE_URL } from '../../services/api-constants';
 
 @Component({
   selector: 'app-login',
@@ -42,7 +43,7 @@ export class LoginComponent {
       }
     }
     // Online login process
-    this.http.post<any>('http://localhost:3000/login', {
+    this.http.post<any>(`${API_BASE_URL}/login`, {
       username: this.username,
       password: this.password
     }).subscribe({
