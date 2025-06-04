@@ -1,0 +1,18 @@
+<div class="checklist-display-container">
+  <h2>チェックリスト一覧画面</h2>
+  <div *ngIf="loading">読み込み中...</div>
+  <div *ngIf="error">{{ error }}</div>
+  <div *ngIf="!loading && !error">
+    <div *ngFor="let item of checklists" class="checklist-row" (click)="goToDetail(item.checklist_id)">
+      <div class="checklist-info">
+        <strong>{{ item.checklist_name }}</strong> <br />
+        <span>作成日: {{ item.date_create }}</span><br />
+        <span>商品数: {{ item.total }}</span>
+      </div>
+      <div class="checklist-status">
+        <img *ngIf="item.status === 1" src="assets/icons/sync-fail.png" alt="同期失敗" class="sync-icon" />
+        <!-- <img *ngIf="item.status === 2" src="assets/icons/sync.png" alt="同期OK" class="sync-icon" /> -->
+      </div>
+    </div>
+  </div>
+</div> 

@@ -1,0 +1,17 @@
+<div class="product-detail-container">
+  <h2>チェックリスト通常登録画面</h2>
+  <div><strong>JANコード:</strong> {{ jancode }}</div>
+  <div><strong>商品名:</strong> {{ name }}</div>
+  <mat-form-field appearance="fill" class="date-field">
+    <mat-label>日付</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="date" required />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div class="button-row">
+    <button class="product-btn back" (click)="onBack()">戻る</button>
+    <button class="product-btn update" (click)="onUpdate()">更新</button>
+  </div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+  <div *ngIf="success" class="success">{{ success }}</div>
+</div> 

@@ -1,0 +1,87 @@
+.admin-table-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 2rem 2.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+}
+
+.mat-elevation-z2 {
+  width: 100%;
+  background: #fafbfc;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th.mat-header-cell, td.mat-cell {
+  padding: 12px 16px;
+  font-size: 1rem;
+}
+th.mat-header-cell {
+  background: #f1f3f4;
+  font-weight: 600;
+}
+tr.mat-row:nth-child(even) td.mat-cell {
+  background: #f8f9fa;
+}
+.empty-message {
+  text-align: center;
+  color: #888;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+}
+
+.toggle-loading-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top: 2px solid #1976d2;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// --- OCR input and button styles ---
+input[matInput] {
+  min-width: 180px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  font-size: 1rem;
+  background: #fff;
+  transition: border 0.2s;
+}
+input[matInput]:focus {
+  border: 1.5px solid #1976d2;
+  outline: none;
+}
+
+button[mat-button], button[mat-raised-button] {
+  min-width: 70px;
+  padding: 6px 18px;
+  font-size: 0.98rem;
+  border-radius: 5px;
+  margin-left: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+button[mat-button]:hover, button[mat-raised-button]:hover {
+  filter: brightness(0.95);
+}
+button[mat-button][color="warn"] {
+  color: #d32f2f;
+}
+button[mat-raised-button][color="primary"] {
+  background: #1976d2;
+  color: #fff;
+}
+button[mat-raised-button][color="primary"]:hover {
+  background: #1565c0;
+}

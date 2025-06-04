@@ -10,11 +10,17 @@ import { SharedDataService } from './services/sharedata.service';
 export class AppComponent {
   constructor(private router: Router, private sharedDataService: SharedDataService) {}
 
-  goToTranslate() {
-    this.router.navigate(['/translate']);
+  get isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
   }
 
-  goToOcr() {
-    this.router.navigate(['/ocr']);
+  get isLoginPage(): boolean {
+    return this.router.url === '/login';
   }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
+  }
+
 }

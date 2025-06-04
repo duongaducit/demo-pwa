@@ -1,0 +1,76 @@
+.checklist-detail-display-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 1rem .5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  margin-bottom: 16px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+}
+.product-row:hover {
+  background: #e9ecef;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.10);
+}
+
+.product-status {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 40px;
+}
+
+.sync-icon {
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+}
+
+.sync-icon-blank {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 8px;
+}
+
+.jancode {
+  font-weight: 600;
+  color: #333;
+}
+
+.productname {
+  color: #007bff;
+  font-size: 1.05rem;
+}
+
+.back-btn {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 1.2rem;
+  background: #6c757d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.back-btn:hover {
+  background: #495057;
+} 

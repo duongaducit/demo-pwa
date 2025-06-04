@@ -1,0 +1,16 @@
+<div class="checklist-detail-display-container">
+  <button class="back-btn" (click)="onBack()">戻る</button>
+  <h2>閲覧検索結果画面</h2>
+  <div *ngIf="loading">読み込み中...</div>
+  <div *ngIf="error">{{ error }}</div>
+  <div *ngIf="!loading && !error">
+    <div *ngFor="let product of products" class="product-row" (click)="goToProductDetail(product.jancode, product.productname, product.dateline)">
+      <span class="jancode">{{ product.jancode }}</span>
+      <span class="productname">{{ product.productname }}</span>
+      <span class="product-status">
+        <img *ngIf="product.status === 1" src="assets/icons/sync-fail.png" alt="同期失敗" class="sync-icon" />
+        <span *ngIf="product.status !== 1" class="sync-icon-blank"></span>
+      </span>
+    </div>
+  </div>
+</div> 

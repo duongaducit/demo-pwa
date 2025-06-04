@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { TranslateComponent } from './translate.component';
+import { AdminComponent } from './admin.component';
 
-describe('TranslateComponent', () => {
-  let component: TranslateComponent;
-  let fixture: ComponentFixture<TranslateComponent>;
+describe('AdminComponent', () => {
+  let component: AdminComponent;
+  let fixture: ComponentFixture<AdminComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [TranslateComponent]
+      declarations: [AdminComponent]
     });
-    fixture = TestBed.createComponent(TranslateComponent);
+    fixture = TestBed.createComponent(AdminComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,0 +1,70 @@
+<div class="admin-table-container">
+  <h2>ユーザーモード設定</h2>
+  <table mat-table [dataSource]="users" class="mat-elevation-z2" *ngIf="users.length">
+    <!-- Username Column -->
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>ユーザー名</th>
+      <td mat-cell *matCellDef="let user">{{ user.username }}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>氏名</th>
+      <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+    </ng-container>
+
+    <!-- Mode Column -->
+    <ng-container matColumnDef="mode">
+      <th mat-header-cell *matHeaderCellDef>モード</th>
+      <td mat-cell *matCellDef="let user">
+        <mat-slide-toggle
+          [checked]="user.mode === 1"
+          (change)="onModeToggle(user)"
+          [disabled]="user.loading"
+        >
+          <span *ngIf="user.loading" class="toggle-loading-spinner"></span>
+        </mat-slide-toggle>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <div *ngIf="!users.length" class="empty-message">ユーザーが見つかりません。</div>
+</div>
+<div class="admin-table-container">
+  <h2>OCR設定</h2>
+  <table mat-table [dataSource]="ocrSettings" class="mat-elevation-z2" *ngIf="ocrSettings.length">
+    <!-- Value Column -->
+    <ng-container matColumnDef="value">
+      <th mat-header-cell *matHeaderCellDef>値</th>
+      <td mat-cell *matCellDef="let setting">
+        <ng-container *ngIf="!setting.isAddRow; else addRowValue">
+          {{ setting.value }}
+        </ng-container>
+        <ng-template #addRowValue>
+          <input matInput placeholder="新しい値" [(ngModel)]="newOcrValue" [disabled]="newOcrLoading" />
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef>操作</th>
+      <td mat-cell *matCellDef="let setting">
+        <ng-container *ngIf="!setting.isAddRow; else addRowActions">
+          <button mat-button color="warn" (click)="onDeleteOcrSetting(setting)">削除</button>
+        </ng-container>
+        <ng-template #addRowActions>
+          <button mat-raised-button color="primary" (click)="onAddOcrSetting()" [disabled]="newOcrLoading || !newOcrValue.trim()">
+            <span *ngIf="!newOcrLoading">追加</span>
+            <span *ngIf="newOcrLoading" class="toggle-loading-spinner"></span>
+          </button>
+        </ng-template>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedOcrColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedOcrColumns;"></tr>
+  </table>
+</div>
